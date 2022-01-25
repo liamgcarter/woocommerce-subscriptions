@@ -79,8 +79,11 @@ class WCS_Meta_Box_Related_Orders {
 		}
 
 		foreach ( $initial_subscriptions as $subscription ) {
-			$subscription->update_meta_data( '_relationship', _x( 'Initial Subscription', 'relation to order', 'woocommerce-subscriptions' ) );
-			$orders_to_display[] = $subscription;
+			//$subscription->update_meta_data( '_relationship', _x( 'Initial Subscription', 'relation to order', 'woocommerce-subscriptions' ) );
+			if ($subscription) {
+    				$subscription->update_meta_data( '_relationship', _x( 'Initial Subscription', 'relation to order', 'woocommerce-subscriptions' ) );
+				$orders_to_display[] = $subscription;
+			}
 		}
 
 		// Assign all order and subscription relationships and filter out non-objects.
